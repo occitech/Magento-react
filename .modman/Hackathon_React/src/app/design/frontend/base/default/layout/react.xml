@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="footer">
+            <block type="core/text" name="react.poil" before="-">
+                <action method="setText"><text><![CDATA[<h1>COUCOU!</h1>]]></text></action>
+            </block>
+        </reference>
+    </default>
+</layout>

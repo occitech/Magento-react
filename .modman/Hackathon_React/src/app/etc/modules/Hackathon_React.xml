@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Hackathon_React>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends></depends>
+        </Hackathon_React>
+    </modules>
+</config>

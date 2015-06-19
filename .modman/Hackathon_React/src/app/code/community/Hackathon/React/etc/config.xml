@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Hackathon_React>
+            <version>1.0.0</version>
+        </Hackathon_React>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <react>
+                    <file>react.xml</file>
+                </react>
+            </updates>
+        </layout>
+    </frontend>
+</config>
