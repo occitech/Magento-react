@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+if test -z "$1"; then
+  echo "You must provide a port"
+  exit 1
+fi
+
+BASE_URL="http://127.0.0.1:$1/"
+if test -z "$2"; then
+    SECURE_BASE_URL=$BASE_URL
+else
+    SECURE_BASE_URL="http://127.0.0.1:$2/"
+fi
+
+while getopts "c" option; do
+  case $option in
+    c)
+      shift
+      BASE_URL="$1"
+      ;;
+  esac
+done
+
+n98-magerun --root-dir=/var/www/html config:set web/unsecure/base_url $BASE_URL >/dev/null 2>&1
+n98-magerun --root-dir=/var/www/html config:set web/secure/base_url $BASE_URL >/dev/null 2>&1
+
+echo "Base URL set to ${BASE_URL}"
+echo "Secure base URL set to ${SECURE_BASE_URL}"

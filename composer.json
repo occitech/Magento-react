@@ -1,0 +1,28 @@
+{
+    "name": "root/magento3",
+    "authors": [
+        {
+            "name": "Adrien Louis-Rossignol",
+            "email": "adrien.louis.r@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.firegento.com"
+        }
+    ],
+    "require": {
+        "bragento/magento-composer-installer": "~1",
+        "magento/core": "1.9.1.*",
+        "colinmollenhour/modman": "*"
+    },
+    "scripts": {
+        "modman": "vendor/bin/modman deploy-all --force"
+    },
+    "extra": {
+        "magento-root-dir": "htdocs",
+        "magento-force": 1,
+        "magento-deploystrategy": "copy"
+    }
+}
