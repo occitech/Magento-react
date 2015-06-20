@@ -11,16 +11,6 @@
                 <class>Hackathon_React_Model</class>
             </react>
         </models>
-        <events>
-            <core_block_abstract_to_html_before>
-                <observers>
-                    <react>
-                        <class>react/observer</class>
-                        <method>renderComponent</method>
-                    </react>
-                </observers>
-            </core_block_abstract_to_html_before>
-        </events>
     </global>
     <frontend>
         <layout>
@@ -31,7 +21,4 @@
             </updates>
         </layout>
     </frontend>
-    <default>
-
-    </default>
 </config>

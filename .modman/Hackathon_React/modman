@@ -1,3 +1,4 @@
 src/app/code/community/Hackathon/React                  app/code/community/Hackathon/React
+src/app/code/local/Mage/Core/Block/Template.php         app/code/local/Mage/Core/Block/Template.php
 src/app/design/frontend/base/default/layout/react.xml   app/design/frontend/base/default/layout/react.xml
 src/app/etc/modules/*                                   app/etc/modules/
