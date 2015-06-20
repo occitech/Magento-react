@@ -1,12 +1,16 @@
-import React from 'react';
+require("expose?React!react");
 import Paypal from './Paypal';
 
-document.addEventListener('DOMContentLoaded', init);
+module.exports = {
+	Paypal: Paypal
+};
+//document.addEventListener('DOMContentLoaded', init);
 
-function init() {
-    let sidebar = document.querySelector('.sidebar');
-    React.render(
-        <Paypal />,
-        sidebar
-    );
-}
+//function init() {
+//    let sidebar = document.querySelector('.sidebar');
+//
+//    React.render(
+//        <Paypal />,
+//        sidebar
+//    );
+//}

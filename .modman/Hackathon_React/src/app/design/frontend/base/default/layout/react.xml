@@ -2,14 +2,19 @@
 <layout>
     <default>
         <reference name="head">
+            <action method="addJs"><js>vendor.bundle.js</js></action>
             <action method="addJs"><js>bundle.js</js></action>
         </reference>
     </default>
 
     <cms_index_index>
         <reference name="paypal.partner.right.logo">
-            <action method="setReactComponent"><react_component>Paypal</react_component></action>
-            <action method="setData"><react_component>Paypal</react_component></action>
+            <action method="setReactComponent"><react_component>FooApp.Paypal</react_component></action>
+            <action method="setReactProps">
+                <props>
+                    <name>Dieu du code</name>
+                </props>
+            </action>
         </reference>
     </cms_index_index>
 </layout>

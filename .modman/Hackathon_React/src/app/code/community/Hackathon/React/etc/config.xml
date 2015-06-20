@@ -31,4 +31,7 @@
             </updates>
         </layout>
     </frontend>
+    <default>
+
+    </default>
 </config>

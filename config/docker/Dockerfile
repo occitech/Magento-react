@@ -11,6 +11,6 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/*
 
 RUN pecl install v8js-0.1.3 \
-	&& echo "extension=v8js.so" > /usr/local/etc/php/conf.d/v8js.ini
+	&& echo "extension=v8js.so" > /usr/local/etc/php/conf.d/ext-v8js.ini
 RUN pecl install zip \
-	&& echo "extension=zip.so" > /usr/local/etc/php/conf.d/zip.ini
+	&& echo "extension=zip.so" > /usr/local/etc/php/conf.d/ext-zip.ini
