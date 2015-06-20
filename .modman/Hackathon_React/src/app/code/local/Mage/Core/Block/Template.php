@@ -160,6 +160,11 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
         return $this;
     }
 
+    public function assignDynamicValue($key, $methodName, $args=[])
+    {
+        $this->assign($key, call_user_func_array([$this, $methodName], $args));
+    }
+
     /**
      * Set template location directory
      *
@@ -238,7 +243,7 @@ HTML;
 
         try {
             if ($component = $this->getReactComponent()) {
-                echo $this->fetchReactComponent($component, $this->getReactProps());
+                echo $this->fetchReactComponent($component, $this->_viewVars);
             } else {
                 $includeFilePath = realpath($this->_viewDir . DS . $fileName);
                 if (strpos($includeFilePath, realpath($this->_viewDir)) === 0 || $this->_getAllowSymlinks()) {

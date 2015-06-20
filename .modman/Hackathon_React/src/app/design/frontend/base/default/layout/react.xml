@@ -9,11 +9,19 @@
 
     <cms_index_index>
         <reference name="paypal.partner.right.logo">
-            <action method="setReactComponent"><react_component>FooApp.Paypal</react_component></action>
-            <action method="setReactProps">
-                <props>
-                    <name>Dieu du code</name>
-                </props>
+            <action method="setReactComponent">
+                <react_component>FooApp.Paypal</react_component>
+            </action>
+            <action method="setYoupi">
+                <react_component>AHAHA</react_component>
+            </action>
+            <action method="assign">
+                <key>name</key>
+                <value>Dieu du sscode</value>
+            </action>
+            <action method="assignDynamicValue">
+                <key>name</key>
+                <value>getYoupi</value>
             </action>
         </reference>
     </cms_index_index>
