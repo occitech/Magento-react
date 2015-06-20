@@ -1,15 +1,16 @@
 SHELL = /bin/bash
 
 MAGERUN = docker-compose run --rm web n98-magerun
+COMPOSER = docker-compose run --rm web composer -d="../"
 
 dev_setup: mage_symlinks modman_deploy
 
 composer_install:
-	@composer install --prefer-dist -n
+	@${COMPOSER} install --prefer-dist -n
 	@make modman_deploy
 
 modman_deploy:
-	@composer modman
+	@${COMPOSER} modman
 
 open_web:
 	@make open container=web port=80

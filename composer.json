@@ -1,5 +1,6 @@
 {
     "name": "root/magento3",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Adrien Louis-Rossignol",
@@ -15,7 +16,8 @@
     "require": {
         "bragento/magento-composer-installer": "~1",
         "magento/core": "1.9.1.*",
-        "colinmollenhour/modman": "*"
+        "colinmollenhour/modman": "*",
+        "reactjs/react-php-v8js": "dev-master"
     },
     "scripts": {
         "modman": "vendor/bin/modman deploy-all --force"

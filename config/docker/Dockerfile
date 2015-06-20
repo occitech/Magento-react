@@ -2,8 +2,15 @@ FROM occitech/magento:php5.4-apache
 
 MAINTAINER occitech <contact@occitech.fr>
 
-RUN a2enmod ssl
-ADD ./default.conf /etc/apache2/sites-available/000-default.conf
-EXPOSE 443
-
 COPY ./bin/set-base-url /usr/local/bin/set-base-url
+
+RUN curl -sS http://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
+
+RUN apt-get update && \
+	apt-get install -y libv8-dev g++&& \
+	rm -rf /var/lib/apt/lists/*
+
+RUN pecl install v8js-0.1.3 \
+	&& echo "extension=v8js.so" > /usr/local/etc/php/conf.d/v8js.ini
+RUN pecl install zip \
+	&& echo "extension=zip.so" > /usr/local/etc/php/conf.d/zip.ini
