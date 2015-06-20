@@ -4,7 +4,9 @@
         <Hackathon_React>
             <active>true</active>
             <codePool>community</codePool>
-            <depends></depends>
+            <depends>
+                <Mage_Paypal/>
+            </depends>
         </Hackathon_React>
     </modules>
 </config>

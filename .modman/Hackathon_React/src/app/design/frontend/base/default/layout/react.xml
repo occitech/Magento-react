@@ -7,4 +7,11 @@
             </block>
         </reference>
     </default>
+
+    <cms_index_index>
+        <reference name="paypal.partner.right.logo">
+            <action method="setReactComponent"><react_component>Paypal</react_component></action>
+            <action method="setData"><react_component>Paypal</react_component></action>
+        </reference>
+    </cms_index_index>
 </layout>
