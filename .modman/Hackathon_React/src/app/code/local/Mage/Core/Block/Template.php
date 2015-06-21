@@ -162,7 +162,18 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
 
     public function assignDynamicValue($key, $methodName, $args=[])
     {
-        $this->assign($key, call_user_func_array([$this, $methodName], $args));
+        $value = call_user_func_array([$this, $methodName], $args);
+        // Move that away
+        $result = [];
+        if ($value instanceof Mage_Eav_Model_Entity_Collection_Abstract) {
+            foreach ($value as $val) {
+                $result[] = $val->getData();
+            }
+        } else {
+            $result = $value;
+        }
+
+        $this->assign($key, $result);
     }
 
     /**
@@ -272,15 +283,12 @@ HTML;
 
     protected function fetchReactComponent($componentName, $props)
     {
-//        Zend_Debug::dump($componentName);
-        // Zend_Debug::dump($props);
         $bundle_source = file_get_contents(BP . DS . 'js/bundle.js');
         $react_source = file_get_contents(BP . DS . 'js/vendor.bundle.js');
         $rjs = new ReactJS($react_source, $bundle_source);
         $rjs->setComponent($componentName, $props);
-        echo $rjs->getMarkup();
-//        TODO Set unique id for rehydratation
-//        printf('<script type="text/javascript">%s alert("toto")</script>', $rjs->getJS('document.querySelector(".sidebar")'));
+        echo '<div id="'. $componentName .'">' . $rjs->getMarkup() . '</div>';
+        printf('<script type="text/javascript">%s</script>', $rjs->getJS('#' . $componentName));
     }
     /**
      * Render block

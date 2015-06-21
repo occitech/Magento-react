@@ -5,7 +5,36 @@
             <action method="addJs"><js>vendor.bundle.js</js></action>
             <action method="addJs"><js>bundle.js</js></action>
         </reference>
+        <reference name="header">
+            <action method="setReactComponent">
+                <react_component>FooApp.Header</react_component>
+            </action>
+            <action method="assignDynamicValue">
+                <key>welcome</key>
+                <value>getWelcome</value>
+            </action>
+            <action method="assignDynamicValue">
+                <key>logoSrc</key>
+                <value>getLogoSrc</value>
+            </action>
+            <action method="assignDynamicValue">
+                <key>logoAlt</key>
+                <value>getLogoAlt</value>
+            </action>
+        </reference>
     </default>
+
+    <catalog_category_default>
+        <reference name="product_list">
+            <action method="setReactComponent">
+                <react_component>FooApp.ProductList</react_component>
+            </action>
+            <action method="assignDynamicValue">
+                <key>products</key>
+                <value>getLoadedProductCollection</value>
+            </action>
+        </reference>
+    </catalog_category_default>
 
     <cms_index_index>
         <reference name="paypal.partner.right.logo">

@@ -1,16 +1,10 @@
 require("expose?React!react");
 import Paypal from './Paypal';
+import Header from './Header';
+import ProductList from './ProductList';
 
 module.exports = {
-	Paypal: Paypal
+  Paypal: Paypal,
+	Header: Header,
+  ProductList: ProductList
 };
-//document.addEventListener('DOMContentLoaded', init);
-
-//function init() {
-//    let sidebar = document.querySelector('.sidebar');
-//
-//    React.render(
-//        <Paypal />,
-//        sidebar
-//    );
-//}
