@@ -13,11 +13,11 @@ module.exports = {
         filename: "bundle.js"
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
+        new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js")
     ],
     module: {
         loaders: [
-            { test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader" }
+            { test: /\.jsx?$/, exclude: node_modules, loader: "babel-loader" }
         ]
     },
     devServer: {
