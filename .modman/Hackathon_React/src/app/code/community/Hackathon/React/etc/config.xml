@@ -11,6 +11,13 @@
                 <class>Hackathon_React_Model</class>
             </react>
         </models>
+        <blocks>
+            <catalog>
+                <rewrite>
+                    <product_list>Hackathon_React_Block_Catalog_Product_List</product_list>
+                </rewrite>
+            </catalog>
+        </blocks>
     </global>
     <frontend>
         <layout>

@@ -4,7 +4,7 @@ import Header from './Header';
 import ProductList from './ProductList';
 
 module.exports = {
-  Paypal: Paypal,
-	Header: Header,
-  ProductList: ProductList
+    Paypal: Paypal,
+    Header: Header,
+    ProductList: ProductList
 };
