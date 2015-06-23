@@ -34,7 +34,7 @@ mage_symlinks:
 
 mage_local_xml:
 	@if test -f htdocs/app/etc/local.xml; then rm htdocs/app/etc/local.xml; fi
-	@docker-compose run --rm web /bin/bash -c 'n98-magerun local-config:generate $${DB_1_PORT_3306_TCP_ADDR} root $${DB_1_ENV_MYSQL_ROOT_PASSWORD} magento files gestionboutique';
+	@docker-compose run --rm web /bin/bash -c 'n98-magerun local-config:generate $${DB_1_PORT_3306_TCP_ADDR} root $${DB_1_ENV_MYSQL_ROOT_PASSWORD} magento files admin';
 
 mage_base_url:
 	@docker-compose run --rm web set-base-url $$(docker-compose port web 80 2>/dev/null | sed s/0.0.0.0://)  $$(docker-compose port web 443 2>/dev/null | sed s/0.0.0.0://);
