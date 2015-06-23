@@ -5,21 +5,9 @@
             <action method="addJs"><js>vendor.bundle.js</js></action>
             <action method="addJs"><js>bundle.js</js></action>
         </reference>
-        <reference name="header">
+        <reference name="catalog.topnav.renderer">
             <action method="setReactComponent">
-                <react_component>FooApp.Header</react_component>
-            </action>
-            <action method="assignDynamicValue">
-                <key>welcome</key>
-                <value>getWelcome</value>
-            </action>
-            <action method="assignDynamicValue">
-                <key>logoSrc</key>
-                <value>getLogoSrc</value>
-            </action>
-            <action method="assignDynamicValue">
-                <key>logoAlt</key>
-                <value>getLogoAlt</value>
+                <react_component>FooApp.Navbar</react_component>
             </action>
         </reference>
     </default>
@@ -29,29 +17,10 @@
             <action method="setReactComponent">
                 <react_component>FooApp.ProductList</react_component>
             </action>
-            <action method="assignDynamicValue">
+            <action method="addDynamicValue">
                 <key>products</key>
-                <value>getLoadedProductCollection</value>
+                <value>productsForReactComponent</value>
             </action>
         </reference>
     </catalog_category_default>
-
-    <cms_index_index>
-        <reference name="paypal.partner.right.logo">
-            <action method="setReactComponent">
-                <react_component>FooApp.Paypal</react_component>
-            </action>
-            <action method="setYoupi">
-                <react_component>AHAHA</react_component>
-            </action>
-            <action method="assign">
-                <key>name</key>
-                <value>Dieu du sscode</value>
-            </action>
-            <action method="assignDynamicValue">
-                <key>name</key>
-                <value>getYoupi</value>
-            </action>
-        </reference>
-    </cms_index_index>
 </layout>

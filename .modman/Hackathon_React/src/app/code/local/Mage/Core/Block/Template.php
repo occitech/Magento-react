@@ -39,6 +39,8 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
     const XML_PATH_DEBUG_TEMPLATE_HINTS_BLOCKS  = 'dev/debug/template_hints_blocks';
     const XML_PATH_TEMPLATE_ALLOW_SYMLINK       = 'dev/template/allow_symlink';
 
+    private $_dynamicValues = [];
+
     /**
      * View scripts directory
      *
@@ -160,20 +162,20 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
         return $this;
     }
 
-    public function assignDynamicValue($key, $methodName, $args=[])
+    public function addDynamicValue($key, $method, $args=[])
     {
-        $value = call_user_func_array([$this, $methodName], $args);
-        // Move that away
-        $result = [];
-        if ($value instanceof Mage_Eav_Model_Entity_Collection_Abstract) {
-            foreach ($value as $val) {
-                $result[] = $val->getData();
-            }
-        } else {
-            $result = $value;
-        }
+        $this->_dynamicValues[$key] = new Varien_Object(compact('method', 'args'));
+    }
 
-        $this->assign($key, $result);
+    protected function assignDynamicValue()
+    {
+        foreach($this->_dynamicValues as $key => $valueGenerator) {
+            $this->assign($key, call_user_func_array(
+                    [$this, $valueGenerator->getMethod()],
+                    $valueGenerator->getArgs()
+                )
+            );
+        }
     }
 
     /**
@@ -227,6 +229,7 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
     {
         Varien_Profiler::start($fileName);
 
+        $this->assignDynamicValue();
         // EXTR_SKIP protects from overriding
         // already defined variables
         extract ($this->_viewVars, EXTR_SKIP);
