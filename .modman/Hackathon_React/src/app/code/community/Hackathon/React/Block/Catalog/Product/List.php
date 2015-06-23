@@ -5,10 +5,10 @@ class Hackathon_React_Block_Catalog_Product_List extends Mage_Catalog_Block_Prod
     {
         $products = [];
         foreach ($this->_getProductCollection() as $product) {
-            $product->setImage($this->helper('catalog/image')->init($product, 'small_image')->keepFrame(false)->resize(300));
+            $product->setImage($this->helper('catalog/image')->init($product, 'small_image')->keepFrame(false)->resize(200)->__toString());
+            $product->setPriceHtml($this->getPriceHtml($product));
             $products[] = $product->getData();
         }
-
         return $products;
     }
 }
