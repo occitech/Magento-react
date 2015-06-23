@@ -1,5 +1,6 @@
 vendor
 htdocs
 .idea
+Magento-react.iml
 node_modules
 npm-debug.log

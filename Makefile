@@ -5,6 +5,16 @@ COMPOSER = docker-compose run --rm web composer -d="../"
 
 dev_setup: mage_symlinks modman_deploy
 
+install:
+	@if [ ! -d "htdocs/app/etc/" ]; then mkdir -p htdocs/app/etc/; fi
+	@docker-compose up -d
+	@sleep 5
+	@make composer_install
+	@npm install
+	@make mage_local_xml
+	@make mage_base_url
+	@make open_web
+
 composer_install:
 	@${COMPOSER} install --prefer-dist -n
 	@make modman_deploy
@@ -35,3 +45,4 @@ docker_run:
 	@make mage_local_xml
 	@make mage_base_url
 	@make open_web
+	@npm run watch
